@@ -33,7 +33,7 @@ def login():
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
-        if not next_page or url_parse(next_page).netlog != '': #netlog: network location
+        if not next_page or url_parse(next_page).netloc != '': #netloc: network location
             next_page = url_for('index')
         return redirect(next_page)
     return render_template('login.html', title='Sign in', form = form)
@@ -56,3 +56,13 @@ def register():
         flash('Congradulations, you are now a registered user!')
         return redirect(url_for('login'))
     return render_template('register.html', title = 'Register', form = form)
+
+@app.route('/user/<username>')
+@login_required
+def user(username):
+    user: User = User.query.filter_by(username = username).first_or_404()
+    posts = [
+        {'author': user, 'body': 'Test post #1'},
+        {'author': user, 'body': 'Test post #2'}
+    ]
+    return render_template('user.html', user = user, posts = posts)
