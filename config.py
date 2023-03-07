@@ -12,5 +12,5 @@ class MiltonConfig(object):
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['mchangpi@gmail.com']
-    LANGUAGES = ['en', 'es']
+    LANGUAGES = ['en', 'es', 'zh']
     POSTS_PER_PAGE = 3

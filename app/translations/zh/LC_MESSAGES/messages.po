@@ -1,0 +1,243 @@
+# Chinese translations for PROJECT.
+# Copyright (C) 2023 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2023-03-07 13:27+0800\n"
+"PO-Revision-Date: 2023-03-07 13:27+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh\n"
+"Language-Team: zh <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.12.1\n"
+
+#: app/__init__.py:22
+msgid "Please log in to access this page."
+msgstr "請登入"
+
+#: app/email.py:19
+msgid "[Microblog] Reset Your Password"
+msgstr "重置密碼"
+
+#: app/forms.py:10 app/forms.py:16 app/forms.py:44
+msgid "Username"
+msgstr "帳號"
+
+#: app/forms.py:11 app/forms.py:18 app/forms.py:38
+msgid "Password"
+msgstr "密碼"
+
+#: app/forms.py:13 app/routes.py:64
+msgid "Sign in"
+msgstr "登入"
+
+#: app/forms.py:17 app/forms.py:34
+msgid "Email"
+msgstr "電子郵件"
+
+#: app/forms.py:19 app/forms.py:40
+msgid "Repeat Password"
+msgstr "請再次輸入密碼"
+
+#: app/forms.py:21 app/templates/register.html:3
+msgid "Register"
+msgstr "註冊"
+
+#: app/forms.py:26
+msgid "Please use a different username"
+msgstr "請使用不同的帳號"
+
+#: app/forms.py:31
+msgid "Please use a different email address"
+msgstr "請使用不同的電子郵件"
+
+#: app/forms.py:35 app/forms.py:41
+msgid "Request Password Reset"
+msgstr "請求重置密碼"
+
+#: app/forms.py:45
+msgid "About me"
+msgstr "關於"
+
+#: app/forms.py:46 app/forms.py:61 app/forms.py:65
+msgid "Submit"
+msgstr "提交"
+
+#: app/forms.py:58
+msgid "Please use a different username."
+msgstr "請使用不同的帳號"
+
+#: app/forms.py:64
+msgid "Say something"
+msgstr "說些什麼"
+
+#: app/routes.py:28
+msgid "Your post is now live!"
+msgstr "您已發布貼文"
+
+#: app/routes.py:35 app/templates/base.html:23
+msgid "Home"
+msgstr "Home"
+
+#: app/routes.py:46 app/templates/base.html:24
+msgid "Explore"
+msgstr "探索"
+
+#: app/routes.py:57
+msgid "Invalid username or password"
+msgstr "帳號/密碼錯誤"
+
+#: app/routes.py:81
+msgid "Congradulations, you are now a registered user!"
+msgstr "恭喜，您已註冊了"
+
+#: app/routes.py:94
+msgid "Check your email for the instructions to reset your password"
+msgstr "請確認您的郵件以重置密碼"
+
+#: app/routes.py:97 app/templates/reset_password_request.html:3
+msgid "Reset Password"
+msgstr "重置密碼"
+
+#: app/routes.py:110
+msgid "Your password has been reset."
+msgstr "您的密碼已更新"
+
+#: app/routes.py:143 app/templates/edit_profile.html:3
+msgid "Edit Profile"
+msgstr "編輯個人資料"
+
+#: app/routes.py:152 app/routes.py:171
+#, python-format
+msgid "User %(username)s not found."
+msgstr "使用者 %(username) 不存在"
+
+#: app/routes.py:155
+msgid "You cannot follow yourself!"
+msgstr "您不能追蹤自己"
+
+#: app/routes.py:159
+#, python-format
+msgid "You are following %(username)s!"
+msgstr "您已追蹤 %(username)"
+
+#: app/routes.py:174
+msgid "You cannot unfollow yourself!"
+msgstr "您不能取消追蹤自己"
+
+#: app/routes.py:178
+#, python-format
+msgid "You are not following %(username)s."
+msgstr "您尚未追蹤 %(username)"
+
+#: app/templates/404.html:2
+msgid "Not Found"
+msgstr "無法找到"
+
+#: app/templates/404.html:3 app/templates/500.html:6
+msgid "Back"
+msgstr "返回"
+
+#: app/templates/500.html:2
+msgid "Unexpected Error has occurred"
+msgstr "未知的錯誤"
+
+#: app/templates/500.html:4
+msgid "The administrator has been notified. Sorry for the inconvenience!"
+msgstr "已通知管理員，造成不便請見諒"
+
+#: app/templates/_post.html:13
+#, python-format
+msgid "%(username)s said %(when)s"
+msgstr "%(username)s 於 %(when)s 說了 "
+
+#: app/templates/base.html:2
+msgid "Welcome to Microblog"
+msgstr "歡迎來到張志榮的微網誌"
+
+#: app/templates/base.html:28
+msgid "Login"
+msgstr "登入"
+
+#: app/templates/base.html:32
+msgid "Profile"
+msgstr "個人資料"
+
+#: app/templates/base.html:35
+msgid "Logout"
+msgstr "登出"
+
+#: app/templates/index.html:3
+#, python-format
+msgid "Hi, %(username)s!"
+msgstr "Hi, %(username)s! "
+
+#: app/templates/index.html:11 app/templates/user.html:43
+msgid "Newer posts"
+msgstr "新的貼文"
+
+#: app/templates/index.html:16 app/templates/user.html:48
+msgid "Older posts"
+msgstr "舊的貼文"
+
+#: app/templates/login.html:3
+msgid "Sign In"
+msgstr "登入"
+
+#: app/templates/login.html:9
+msgid "New User?"
+msgstr "尚未註冊"
+
+#: app/templates/login.html:10
+msgid "Click to Register!"
+msgstr "按此以註冊"
+
+#: app/templates/login.html:14
+msgid "Forgot Your Password?"
+msgstr "忘記密碼"
+
+#: app/templates/login.html:16
+msgid "Click to Reset It"
+msgstr "按此以重置"
+
+#: app/templates/reset_password.html:3
+msgid "Reset Your Password"
+msgstr "重置密碼"
+
+#: app/templates/user.html:6
+msgid "User"
+msgstr "使用者"
+
+#: app/templates/user.html:10
+msgid "Last seen on"
+msgstr "上次發文於"
+
+#: app/templates/user.html:13
+#, python-format
+msgid "%(count)d followers"
+msgstr "%(count)d 追蹤者"
+
+#: app/templates/user.html:14
+#, python-format
+msgid "%(count)d following"
+msgstr "%(count)d 正在追蹤"
+
+#: app/templates/user.html:17
+msgid "Edit your profile"
+msgstr "編輯個人資料"
+
+#: app/templates/user.html:22
+msgid "Follow"
+msgstr "追蹤"
+
+#: app/templates/user.html:29
+msgid "Unfollow"
+msgstr "取消追蹤"
+
