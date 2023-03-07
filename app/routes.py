@@ -4,8 +4,8 @@ from werkzeug.urls import url_parse
 from flask_login import current_user, login_user, logout_user, login_required
 from flask_babel import _, get_locale
 from app import app, db
-from app.forms import LoginForm, RegistrationForm, EditProfileForm, PostForm, \
-                      ResetPasswordRequestForm, ResetPasswordForm
+from app.forms import LoginForm, RegistrationForm, EditProfileForm, \
+                      EmptyForm, PostForm, ResetPasswordRequestForm, ResetPasswordForm
 from app.models import User, Post
 from app.email import send_password_reset_email
 
@@ -122,8 +122,9 @@ def user(username):
         if posts.has_prev else None
     next_url = url_for('user', username=user.username, page=posts.next_num) \
         if posts.has_next else None
+    form = EmptyForm()
     return render_template('user.html', user=user, posts=posts.items,
-                           prev_url=prev_url, next_url=next_url)
+                           prev_url=prev_url, next_url=next_url, form=form)
 
 @app.route('/edit_profile', methods=['GET', 'POST'])
 @login_required
@@ -141,32 +142,40 @@ def edit_profile():
         #print("name: ", form.username.data, ",about: ", form.about_me.data)
     return render_template('edit_profile.html', title=_('Edit Profile'), form=form)
 
-@app.route('/follow/<username>')
+@app.route('/follow/<username>', methods=['POST'])
 @login_required
 def follow(username):
-    user = User.query.filter_by(username=username).first()
-    if user is None:
-        flash(_('User %(username)s not found.', username=username))
-        return redirect(url_for('index'))
-    if user == current_user:
-        flash(_('You can not folow yourself!'))
+    form = EmptyForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(username=username).first()
+        if user is None:
+            flash(_('User %(username)s not found.', username=username))
+            return redirect(url_for('index'))
+        if user == current_user:
+            flash(_('You cannot follow yourself!'))
+            return redirect(url_for('user', username=username))
+        current_user.follow(user)
+        db.session.commit()
+        flash(_('You are following %(username)s!', username=username))
         return redirect(url_for('user', username=username))
-    current_user.follow(user)
-    db.session.commit()
-    flash(_('You are following %(username)s!', username=username))
-    return redirect(url_for('user', username=username))
+    else:
+        return redirect(url_for('index'))
 
-@app.route('/unfollow/<username>')
+@app.route('/unfollow/<username>', methods=['POST'])
 @login_required
 def unfollow(username):
-    user = User.query.filter_by(username=username).first()
-    if user is None:
-        flash(_('User %(username)s not found.', username=username))
-        return redirect(url_for('index'))
-    if user == current_user:
-        flash(_('You can not unfolow yourself!'))
+    form = EmptyForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(username=username).first()
+        if user is None:
+            flash(_('User %(username)s not found.', username=username))
+            return redirect(url_for('index'))
+        if user == current_user:
+            flash(_('You cannot unfollow yourself!'))
+            return redirect(url_for('user', username=username))
+        current_user.unfollow(user)
+        db.session.commit()
+        flash(_('You are not following %(username)s.', username=username))
         return redirect(url_for('user', username=username))
-    current_user.unfollow(user)
-    db.session.commit()
-    flash(_('You are NOT following %(username)s!', username=username))
-    return redirect(url_for('user', username=username))
+    else:
+        return redirect(url_for('index'))
