@@ -18,7 +18,7 @@ class SearchableMixin(object):
         for i in range(len(ids)):
             when.append((ids[i], i))
             print('(ids[i], i):', (ids[i], i))
-        print('cls.id:', cls.id, ',ids:', ids)
+        #print('cls.id:', cls.id, ',ids:', ids)
         query = cls.query.filter(cls.id.in_(ids)).order_by(db.case(when, value=cls.id)) 
         print('query:', query)
         return query, total
