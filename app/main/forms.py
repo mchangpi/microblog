@@ -38,3 +38,8 @@ class SearchForm(FlaskForm):
         if 'meta' not in kwargs:
             kwargs['meta'] = {'csrf': False} # Flask-WTF bypass CSRF validation
         super(SearchForm, self).__init__(*args, **kwargs)
+
+class MessageForm(FlaskForm):
+    message = TextAreaField(_l('Message'), validators=[
+        DataRequired(), Length(min=1, max=140)])
+    submit = SubmitField(_l('Submit'))
