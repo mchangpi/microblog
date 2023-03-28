@@ -1,4 +1,5 @@
 alembic==1.8.1
+async-timeout==4.0.2
 Babel==2.12.1
 blinker==1.5
 certifi==2022.12.7
@@ -31,6 +32,8 @@ packaging==23.0
 PyJWT==2.6.0
 python-dotenv==0.21.0
 pytz==2022.7.1
+redis==4.5.3
+rq==1.13.0
 six==1.16.0
 SQLAlchemy==1.4.45
 tomli==2.0.1
