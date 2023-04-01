@@ -1,9 +1,11 @@
-from datetime import datetime
+import base64
+from datetime import datetime, timedelta
 from hashlib import md5
 import json
+import os
 from time import time
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask import current_app
+from flask import current_app, url_for
 from flask_login import UserMixin
 from app import db, login
 import jwt
